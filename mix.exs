@@ -22,7 +22,10 @@ defmodule ThousandIslandTailscale.MixProject do
   defp deps do
     [
       {:thousand_island, "~> 1.3.12"},
-      {:dep_from_git, git: "https://github.com/Munksgaard/gen_tailscale.git", branch: "master"}
+      {:gen_tailscale, git: "https://github.com/Munksgaard/gen_tailscale.git"},
+
+      # Testing and development deps
+      {:phoenix_playground, "~> 0.1.7", only: [:dev, :test]}
     ]
   end
 end
