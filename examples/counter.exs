@@ -30,13 +30,13 @@ PhoenixPlayground.start(
   live: DemoLive,
   live_reload: false,
   endpoint_options: [
-    url: [host: "counter-test"],
+    url: [host: "counter"],
     http: [
       ip: :any,
       port: 2000,
       thousand_island_options: [
         transport_module: ThousandIslandTailscale,
-        transport_options: [hostname: "counter-test"]
+        transport_options: [hostname: "counter"]
       ]
     ]
   ],
