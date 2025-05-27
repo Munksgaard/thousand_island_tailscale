@@ -30,12 +30,13 @@ PhoenixPlayground.start(
   live: DemoLive,
   live_reload: false,
   endpoint_options: [
-    url: [host: "beam-smp"],
+    url: [host: "counter-test"],
     http: [
       ip: :any,
-      port: 1999,
+      port: 2000,
       thousand_island_options: [
-        transport_module: ThousandIslandTailscale
+        transport_module: ThousandIslandTailscale,
+        transport_options: [hostname: "counter-test"]
       ]
     ]
   ],
