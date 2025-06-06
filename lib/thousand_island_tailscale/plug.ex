@@ -9,7 +9,7 @@ defmodule ThousandIslandTailscale.Plug do
   @behaviour Plug
 
   @impl Plug
-  defn init(_opts) do
+  def init(_opts) do
     %{}
   end
 
