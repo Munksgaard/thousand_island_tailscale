@@ -23,6 +23,8 @@ defmodule ThousandIslandTailscale.MixProject do
     [
       {:thousand_island, "~> 1.3.12"},
       {:gen_tailscale, git: "https://github.com/Munksgaard/gen_tailscale.git"},
+      {:plug, "~> 1.15"},
+      {:req, "~> 0.5"},
 
       # Testing and development deps
       {:phoenix_playground, "~> 0.1.7", only: [:dev, :test]},
