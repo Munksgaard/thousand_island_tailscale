@@ -27,8 +27,7 @@ defmodule ThousandIslandTailscale.MixProject do
       {:req, "~> 0.5"},
 
       # Testing and development deps
-      {:phoenix_playground, "~> 0.1.7", only: [:dev, :test]},
-      {:req, "~> 0.5", only: [:dev, :test]}
+      {:phoenix_playground, "~> 0.1.7", only: [:dev, :test]}
     ]
   end
 end
