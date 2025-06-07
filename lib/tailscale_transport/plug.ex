@@ -1,6 +1,52 @@
 defmodule TailscaleTransport.Plug do
-  @moduledoc """
+  @moduledoc ~S"""
   A Phoenix plug that extracts Tailscale user information from the connection.
+
+  This plug extracts the remote IP from the Tailscale socket and uses the LocalAPI to lookup information about the connecting client. It then adds two fields to the connection assigns: `tailscale_ip` and `tailscale_user`. Example:
+
+  ```elixir
+  %{
+    tailscale_user: %{
+      "CapMap" => nil,
+      "Node" => %{
+        "Addresses" => ["XXX.XXX.XXX.XXX/32", "xxxx:xxxx:xxxx::xxxx:xxxx/128"],
+        "AllowedIPs" => ["XXX.XXX.XXX.XXX/32", "xxxx:xxxx:xxxx::xxxx:xxxx/128"],
+        "ComputedName" => "NAME-OF-DEVICE",
+        "ComputedNameWithHost" => "NAME-OF-DEVICE",
+        "Created" => "2024-11-02T21:24:08.926070005Z",
+        "DERP" => "XXX.XXX.XXX.XXX:XXXX",
+        "DiscoKey" => "discokey:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "Endpoints" => ["XXX.XXX.XXX.XXX:XXXXX",
+         "[XXXX:XXXX:XXXX:XXXX:XXXX]:XXXXX", "XXX.XXX.XXX.XXX:XXXXX",
+        "Hostinfo" => %{
+          "Hostname" => "HOSTNAME",
+          "OS" => "linux",
+          "Services" => [
+            %{"Port" => 45445, "Proto" => "peerapi4"},
+            %{"Port" => 53072, "Proto" => "peerapi6"},
+            %{"Port" => 1, "Proto" => "peerapi-dns-proxy"}
+          ]
+        },
+        "ID" => XXXXXXXXXXXXXXX,
+        "Key" => "nodekey:XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "KeyExpiry" => "2025-10-29T07:23:31Z",
+        "Machine" => "mkey:0000000000000000000000000000000000000000000000000000000000000000",
+        "Name" => "FULLY-QUALIFIED-HOSTNAME",
+        "Online" => true,
+        "StableID" => "XXXXXXXXXXXXXXX",
+        "User" => XXXXXXXXXXXXXX
+      },
+      "UserProfile" => %{
+        "DisplayName" => "USER-DISPLAY-NAME",
+        "ID" => XXXXXXXXXXXX,
+        "LoginName" => "XXXXX@XXXXXX",
+        "ProfilePicURL" => "XXXXXXXXXXXXXXXXXXXXX",
+        "Roles" => []
+      }
+    },
+    tailscale_ip: "XXX.XXX.XXX.XXX"
+  }
+  ```
   """
 
   import Plug.Conn

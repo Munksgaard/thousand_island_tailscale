@@ -4,6 +4,10 @@ A transport for ThousandIsland that allows exposing services directly to your ta
 
 An example application can be found in [tschat](https://github.com/Munksgaard/tschat).
 
+In addition to the transport itself, this package also provides an
+authentication plug `TailscaleTransport.Plug` which gets information about
+connecting clients using Tailscales LocalAPI.
+
 ## Installation
 
 The package can be installed by adding `tailscale_transport` to your list of
