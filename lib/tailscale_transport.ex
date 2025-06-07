@@ -1,20 +1,7 @@
-defmodule ThousandIslandTailscale do
+defmodule TailscaleTransport do
   @moduledoc """
-  Defines a `ThousandIsland.Transport` implementation based on clear TCP sockets
-  as provided by Erlang's `:gen_tailscale_socket_2` module. For the most part, users of Thousand
-  Island will only ever need to deal with this module via `transport_options`
-  passed to `ThousandIsland` at startup time. A complete list of such options
-  is defined via the `t::gen_tailscale_socket_2.listen_option/0` type. This list can be somewhat
-  difficult to decipher; by far the most common value to pass to this transport
-  is the following:
-
-  * `ip`:  The IP to listen on. Can be specified as:
-    * `{1, 2, 3, 4}` for IPv4 addresses
-    * `{1, 2, 3, 4, 5, 6, 7, 8}` for IPv6 addresses
-    * `:loopback` for local loopback
-    * `:any` for all interfaces (i.e.: `0.0.0.0`)
-    * `{:local, "/path/to/socket"}` for a Unix domain socket. If this option is used,
-      the `port` option *must* be set to `0`
+  Defines a `ThousandIsland.Transport` implementation based on a tailscale
+  socket as provided by `:gen_tailscale`.
 
   Unless overridden, this module uses the following default options:
 

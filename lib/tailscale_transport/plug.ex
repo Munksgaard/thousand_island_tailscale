@@ -1,4 +1,4 @@
-defmodule ThousandIslandTailscale.Plug do
+defmodule TailscaleTransport.Plug do
   @moduledoc """
   A Phoenix plug that extracts Tailscale user information from the connection.
   """
