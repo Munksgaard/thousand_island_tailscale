@@ -1,5 +1,7 @@
 # TailscaleTransport
 
+A transport for ThousandIsland that allows exposing services directly to your tailnet.
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
